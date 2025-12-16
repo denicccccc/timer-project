@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>Завдання 1</h3>
+<p id="t1">60 хв</p>
+
+<script>
+  let min = 60;
+  let timer1 = document.getElementById("t1");
+
+  let i1 = setInterval(() => {
+    min--;
+    timer1.innerText = min + " хв";
+
+    if (min == 30) {
+      alert("Залишилось менше половини часу");
+    }
+
+    if (min == 0) {
+      clearInterval(i1);
+      alert("Час вийшов");
+    }
+  }, 60000); // 1 хвилина
+</script>
+<h3>Завдання 2</h3>
+
+<p id="t2">30</p>
+<button id="btn">Старт</button>
+
+<script>
+  let btn = document.getElementById("btn");
+  let t2 = document.getElementById("t2");
+
+  btn.onclick = () => {
+    btn.disabled = true;
+    let time = 30000;
+
+    let i2 = setInterval(() => {
+      time--;
+      t2.innerText = Math.ceil(time / 1000);
+
+      if (time == 10000) {
+        alert("Залишилось 10 секунд");
+      }
+
+      if (time == 0) {
+        clearInterval(i2);
+        btn.disabled = false;
+        alert("Час вийшов");
+      }
+    }, 1);
+  };
+</script>
+
+</body>
+</html>
